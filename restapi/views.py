@@ -78,16 +78,16 @@ def clientputdel(request,pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 
-@api_view(['POST'])
+@api_view(['GET','POST'])
 def viewprojects(request):
-    # if request.method == "GET":
-    #     clients = Client.objects.all()
-    #     if clients:
-    #         serializer = Clientserializer(clients,many=True)
-    #         serializer = serializer.data
-    #         return Response(serializer)
-    #     else:
-    #         return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == "GET":
+        projects = project.objects.all()
+        if projects:
+            serializer = Projectserializer(projects,many=True)
+            serializer = serializer.data
+            return Response(serializer)
+        else:
+            return Response(status=status.HTTP_404_NOT_FOUND)
         
     if request.method == "POST":
         # request.data['created_by']= str(get_user(request))
