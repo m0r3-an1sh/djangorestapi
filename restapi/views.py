@@ -58,7 +58,7 @@ def viewclient(request,pk):
         projects = project.objects.filter(clientprojects=client[0]['id']).values('id','projectname')
         data = {"client":client,"project":projects}
 
-        print(data.values()[0])
+        print(data.values())
         # print(projects[0].projectname)
         # print(get_user(request))
         
