@@ -4,6 +4,8 @@ from . import views
 
 urlpatterns = [
     path('h', views.home , name='home'),
-    path('all/',views.viewclients,name='viewclients'),
+    path('clients/',views.viewclients,name='viewclients'),
     path('client/<int:pk>/',views.viewclient,name='viewclient'),
+    path('clientsputpatch/<int:pk>/',views.clientputdel,name='clientputdel'),
+    path('projectsadd/',views.viewprojects,name="viewprojects"),
 ]
